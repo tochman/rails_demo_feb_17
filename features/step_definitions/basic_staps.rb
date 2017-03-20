@@ -27,3 +27,7 @@ end
 And(/^I click "([^"]*)"$/) do |text|
   click_link_or_button text
 end
+
+Then(/^show me the page$/) do
+  save_and_open_page
+end

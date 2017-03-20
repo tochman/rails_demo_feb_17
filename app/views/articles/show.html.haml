@@ -1,8 +1,9 @@
 %h2= @article.title
 %p= @article.content
 
-- form_for(@article, @comment) do |form|
+= form_for [@article, @comment] do |form|
   = form.label :email
-  = form.email :email
+  = form.email_field :email
   = form.label :body, 'Comment'
-  = form.input :body
+  = form.text_field :body
+  = form.submit
