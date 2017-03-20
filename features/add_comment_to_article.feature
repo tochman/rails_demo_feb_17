@@ -13,6 +13,8 @@ Feature: Add comment to article
   Scenario: Visitor creates a comment
     Given I am on the landing page
     And I click on "Read more" for "A breaking news item"
+    Then I should see "A breaking news item"
+    And I should see "Some really breaking action"
     And I fill in "Comment" with "This is interesting"
     And I fill in "Email" with "thomas@craft.se"
     And I click "Submit"

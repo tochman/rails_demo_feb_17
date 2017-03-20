@@ -1,3 +1,5 @@
 - @articles.each do |article|
-  %p= article.title
-  %p= article.content
+  %div{ id: "article-#{article.id}" }
+    %p= article.title
+    %p= article.content
+    = link_to 'Read more', article_path(article)
