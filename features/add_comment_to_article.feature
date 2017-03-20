@@ -20,3 +20,4 @@ Feature: Add comment to article
     And I click "Create Comment"
     Then I should see "Thank you! You comment has been added."
     And I should see "This is interesting"
+    And I should see "Comment by: thomas@craft.se"

@@ -7,3 +7,7 @@
   = form.label :body, 'Comment'
   = form.text_field :body
   = form.submit
+
+- @article.comments.each do |comment|
+  = comment.body
+  = "Comment by: #{comment.email}"
