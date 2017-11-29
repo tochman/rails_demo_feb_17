@@ -17,7 +17,16 @@ Feature: Add comment to article
     And I should see "Some really breaking action"
     And I fill in "Comment" with "This is interesting"
     And I fill in "Email" with "thomas@craft.se"
+    Then show me the page
     And I click "Create Comment"
     Then I should see "Thank you! You comment has been added."
     And I should see "This is interesting"
     And I should see "Comment by: thomas@craft.se"
+
+  Scenario: Throws an error when comment body is empty
+
+  Scenario: Comment is okay even if email is not submitted
+
+  Scenario: Throws an error if email is present but badly formatted
+
+
