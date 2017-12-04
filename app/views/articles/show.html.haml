@@ -7,3 +7,9 @@
   = form.label :comment
   = form.text_field :comment
   = form.submit 'Create Comment'
+
+
+- if @article.comments.any?
+  - @article.comments.each do |comment|
+    %p= "Commented by: #{comment.email}"
+    %p= comment.content
