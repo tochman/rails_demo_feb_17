@@ -28,6 +28,6 @@ Then(/^I should be on the "([^"]*)" article page$/) do |article_title|
 end
 
 
-Then(/^show see the page$/) do
+Then(/^show me the page$/) do
   save_and_open_page
 end

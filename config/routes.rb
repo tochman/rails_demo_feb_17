@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+
+  resources :subscriptions, only: [:new]
+  post '/charges', controller: :subscriptions, action: :create
+
   devise_for :users
-  get 'comments/create'
 
   root controller: :articles, action: :index
 

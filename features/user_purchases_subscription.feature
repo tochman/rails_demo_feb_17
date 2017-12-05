@@ -1,8 +1,7 @@
-@javascript
-Feature: User can view an article if he is a subscriber
-  As a greedy publisher
-  In order to be able to monetize on my content
-  I would like to restrict access to articles to subscribing users
+Feature: User can purchase a subscription
+  As a visitor
+  In order to access all content of the news service
+  I would like to be able to purchase a life long subscription
 
 
   Background:
@@ -16,18 +15,21 @@ Feature: User can view an article if he is a subscriber
       | A breaking news item | Some really breaking action      |
       | Learn Rails 5        | Build awesome rails applications |
 
-
-  Scenario: Subscriber can view an article
-    Given I am logged in as "subscriber@random.com"
-    And I am on the landing page
-    When I click on "Learn Rails 5"
-    Then I should be on the "Learn Rails 5" article page
-
-
-  Scenario: Non-subscriber can not view article
+  @javascript
+  Scenario: User can click on "Subscribe" link if not already subscribing
     Given I am logged in as "random@random.com"
     And I am on the landing page
     When I click on "Learn Rails 5"
     Then I should be on the "landing" page
     And I should see "You need to purchase a subscription"
+    When I click on "Subscribe"
+    And I click the "Pay with Card" stripe button
+    And I fill in my card details on the stripe form
+    And I submit the stripe form
+    Then I should be on the "landing" page
+    And I should see "Welcome as a subscriber"
+    When I click on "Learn Rails 5"
+    Then I should be on the "Learn Rails 5" article page
+
+
 

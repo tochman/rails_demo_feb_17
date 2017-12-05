@@ -1,3 +1,4 @@
+@javascript
 Feature: List articles on landing page
   As a visitor,
   when I visit the application's landing page,

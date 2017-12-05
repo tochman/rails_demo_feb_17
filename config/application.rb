@@ -26,5 +26,8 @@ module RailsDemo
       generate.routing_specs false
       generate.controller_specs false
     end
+    config.stripe.secret_key = 'sk_test_CKx49b0AfJFRS9oIIenegFpN'
+    config.stripe.publishable_key = 'pk_test_QicERB8w3kyqaYW3hUUQylRH'
+    config.stripe.endpoint = '/payment/stripe-integration'
   end
 end

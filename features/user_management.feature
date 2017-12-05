@@ -1,3 +1,4 @@
+@javascript
 Feature: Authentication: User can create and use an account
   As a user of the system
   In order to access restricted features

@@ -1,3 +1,4 @@
+@javascript
 Feature: User can comment on an article
   As a user of the news service
   In order to express my opinions

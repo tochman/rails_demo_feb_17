@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'haml-rails'
 gem 'devise'
 gem 'pundit'
+gem 'stripe-rails'
 
 
 group :development, :test do
@@ -27,6 +28,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'validates_email_format_of'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+
 end
 
 group :development do
