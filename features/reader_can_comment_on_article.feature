@@ -4,13 +4,21 @@ Feature: User can comment on an article
   I would like to be able to comment on any given news article
 
   Background:
+
+    Given the following users exist
+      | email             | password        |subscriber|
+      | random@random.com | random_password |true      |
+
     Given the following articles exists in the system
       | title                | content                          |
       | A breaking news item | Some really breaking action      |
       | Learn Rails 5        | Build awesome rails applications |
 
-  Scenario: User can successfully leave a comment
+    Given I am logged in as "random@random.com"
     Given I am on the landing page
+
+
+  Scenario: User can successfully leave a comment
     And I click on "Learn Rails 5"
     When I fill in "Email" with "random@email.com"
     And I fill in "Comment" with "Star Trek Discovery"
@@ -21,7 +29,6 @@ Feature: User can comment on an article
     And I should see "Commented by: random@email.com"
 
   Scenario: User fails to submit content of comment
-    Given I am on the landing page
     And I click on "Learn Rails 5"
     When I fill in "Email" with "random@email.com"
     And I fill in "Comment" with ""
@@ -30,7 +37,6 @@ Feature: User can comment on an article
     And I should see "Content can't be blank"
 
   Scenario: User fails to provide a valid email
-    Given I am on the landing page
     And I click on "Learn Rails 5"
     When I fill in "Email" with "random guy@email."
     And I fill in "Comment" with ""
@@ -39,7 +45,6 @@ Feature: User can comment on an article
     And I should see "Email is invalid"
 
   Scenario: User opts out from submitting email
-    Given I am on the landing page
     And I click on "Learn Rails 5"
     When I fill in "Email" with ""
     And I fill in "Comment" with "Star Trek Discovery"

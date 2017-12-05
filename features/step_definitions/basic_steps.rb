@@ -3,7 +3,6 @@ Given(/^I am on the landing page$/) do
 end
 
 
-
 Given(/^the following articles exists in the system$/) do |table|
   table.hashes.each do |hash|
     FactoryGirl.create(:article, hash)
@@ -16,9 +15,9 @@ end
 
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   begin
-    fill_in field.downcase, with: value
-  rescue
     fill_in field, with: value
+  rescue
+    fill_in field.downcase, with: value
   end
 end
 
