@@ -24,6 +24,7 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'validates_email_format_of'
 end
 
 group :development do

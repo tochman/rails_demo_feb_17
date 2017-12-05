@@ -19,3 +19,33 @@ Feature: User can comment on an article
     And I should see "Your comment was added successfully"
     And I should see "Star Trek Discovery"
     And I should see "Commented by: random@email.com"
+
+  Scenario: User fails to submit content of comment
+    Given I am on the landing page
+    And I click on "Learn Rails 5"
+    When I fill in "Email" with "random@email.com"
+    And I fill in "Comment" with ""
+    And I click on "Create Comment"
+    Then I should be on the "Learn Rails 5" page
+    And I should see "Content can't be blank"
+
+  Scenario: User fails to provide a valid email
+    Given I am on the landing page
+    And I click on "Learn Rails 5"
+    When I fill in "Email" with "random guy@email."
+    And I fill in "Comment" with ""
+    And I click on "Create Comment"
+    Then I should be on the "Learn Rails 5" page
+    And I should see "Email is invalid"
+
+  Scenario: User opts out from submitting email
+    Given I am on the landing page
+    And I click on "Learn Rails 5"
+    When I fill in "Email" with ""
+    And I fill in "Comment" with "Star Trek Discovery"
+    And I click on "Create Comment"
+    Then I should be on the "Learn Rails 5" page
+    And I should see "Your comment was added successfully"
+    And I should see "Star Trek Discovery"
+    And I should see "Commented by: anonymous"
+

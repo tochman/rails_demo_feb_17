@@ -21,5 +21,9 @@ RSpec.describe Comment, type: :model do
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :content}
+    it do
+      is_expected.to validate_email_format_of(:email)
+                         .with_message 'Email is invalid'
+    end
   end
 end

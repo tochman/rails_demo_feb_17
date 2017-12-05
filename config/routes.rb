@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root controller: :articles, action: :index
 
-  resources :articles do
-    resources :comments
+  resources :articles, only: [:index, :show] do
+    resources :comments, only: [:create]
   end
 end
