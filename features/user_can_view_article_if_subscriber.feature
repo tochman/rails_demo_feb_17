@@ -1,5 +1,5 @@
 Feature: User can view an article if he is a subscriber
-  As a publisher
+  As a greedy publisher
   In order to be able to monetize on my content
   I would like to restrict access to articles to subscribing users
 

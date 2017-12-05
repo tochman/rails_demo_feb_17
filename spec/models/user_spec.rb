@@ -18,11 +18,11 @@ RSpec.describe User, type: :model do
     let(:nonsubscriber) {FactoryGirl.create(:user, subscriber: false)}
 
     it 'responds true if user is a subscriber' do
-      expect(subscriber.subscriber).to eq true
+      expect(subscriber.subscriber?).to eq true
     end
 
     it 'responds false if user is not a subscriber' do
-      expect(nonsubscriber.subscriber).to eq false
+      expect(nonsubscriber.subscriber?).to eq false
     end
 
   end
