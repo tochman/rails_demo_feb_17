@@ -17,15 +17,20 @@ Given(/^I click on "([^"]*)"$/) do |element|
 end
 
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
-  fill_in field.downcase, with: value
+  begin
+    fill_in field.downcase, with: value
+  rescue
+    fill_in field, with: value
+  end
 end
 
-Then(/^I should be on the "([^"]*)" page$/) do |article_title|
-  article = Article.find_by(title: article_title)
-  expect(current_path).to eq article_path(article)
-end
+
+  Then(/^I should be on the "([^"]*)" page$/) do |article_title|
+    article = Article.find_by(title: article_title)
+    expect(current_path).to eq article_path(article)
+  end
 
 
-Then(/^show see the page$/) do
-  save_and_open_page
-end
+  Then(/^show see the page$/) do
+    save_and_open_page
+  end

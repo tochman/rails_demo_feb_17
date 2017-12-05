@@ -13,6 +13,14 @@
 <% flash.each do |key, value| %>
   <strong><%= value %></strong>
 <% end %>
+
+<% if user_signed_in? %>
+  Signed in as: <%= current_user.email %>
+<% else %>
+  <li>
+    <%= link_to('Create an account', new_user_registration_path)  %>
+  </li>
+<% end %>
 <%= yield %>
 </body>
 </html>

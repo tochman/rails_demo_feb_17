@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'haml-rails'
+gem 'devise'
 
 
 group :development, :test do
