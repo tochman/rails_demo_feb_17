@@ -1,20 +1,18 @@
 When(/^I click the "([^"]*)" stripe button$/) do |button|
   click_button button
-end
-
-And(/^I fill in my card details on the stripe form$/) do
   sleep(2)
   @stripe_iframe = all('iframe[name=stripe_checkout_app]').last
+end
+
+And(/^I fill in stripe field "([^"]*)" with "([^"]*)"$/) do |field, value|
   within_frame @stripe_iframe do
-    fill_in 'Card number', with: '4242 4242 4242 4242'
-    fill_in 'CVC', with: '123'
-    fill_in 'Expiry', with: '12/2021'
+    fill_in field, with: value
   end
 end
 
 And(/^I submit the stripe form$/) do
   within_frame @stripe_iframe do
-    click_button 'Pay SEK10.00'
+    find('.Section-button').click
   end
   sleep(5)
 end
