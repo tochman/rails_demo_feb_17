@@ -27,7 +27,12 @@ Then(/^I should be on the "([^"]*)" article page$/) do |article_title|
   expect(current_path).to eq article_path(article)
 end
 
-
 Then(/^show me the page$/) do
   save_and_open_page
+end
+
+And(/^I fill in the form with:$/) do |table|
+  table.rows_hash.each do |key, value|
+    fill_in key, with: value
+  end
 end

@@ -16,6 +16,10 @@ Feature: Authentication: User can create and use an account
     And I fill in "Email" with "new_user@random.com"
     And I fill in "Password" with "new_password"
     And I fill in "Password confirmation" with "new_password"
+    And I fill in the form with:
+      | Email                 | thomas@random.com |
+      | Password              | password          |
+      | Password confirmation | password          |
     And I click on "Sign up"
     Then I should see "Welcome! You have signed up successfully"
 

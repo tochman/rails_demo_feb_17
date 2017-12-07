@@ -15,6 +15,11 @@ Feature: User can purchase a subscription
       | A breaking news item | Some really breaking action      |
       | Learn Rails 5        | Build awesome rails applications |
 
+    And this table exist
+      | column_1 | value_1 |
+      | column_2 | value_2 |
+      | column_3 | value_3 |
+
   @javascript
   Scenario: User can click on "Subscribe" link if not already subscribing
     Given I am logged in as "random@random.com"

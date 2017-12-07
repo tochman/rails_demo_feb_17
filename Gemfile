@@ -18,6 +18,8 @@ gem 'devise'
 gem 'pundit'
 gem 'stripe-rails'
 
+gem 'geocoder'
+
 
 group :development, :test do
   gem 'pry'
