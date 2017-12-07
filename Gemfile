@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'haml-rails'
 gem 'devise'
+gem 'omniauth-facebook', '~> 4.0'
 gem 'pundit'
 gem 'stripe-rails'
 

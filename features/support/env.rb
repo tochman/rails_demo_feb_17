@@ -26,6 +26,9 @@ end
 
 Capybara.javascript_driver = :chrome
 
+
+OmniAuth.config.test_mode = true
+
 Warden.test_mode!
 World Warden::Test::Helpers
 After { Warden.test_reset! }

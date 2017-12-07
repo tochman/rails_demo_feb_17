@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: [:new]
   post '/charges', controller: :subscriptions, action: :create
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: :omniauth_callbacks}
 
   root controller: :articles, action: :index
 

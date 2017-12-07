@@ -16,12 +16,14 @@
 
 <% if user_signed_in? %>
   Signed in as: <%= current_user.email %>
+  <%= image_tag current_user.image %>
 <p>
   <%= link_to 'Subscribe', new_subscription_path %>
 </p>
 <% else %>
     <%= link_to('Create an account', new_user_registration_path)  %>
     <%= link_to('Login', new_user_session_path)  %>
+    <%= link_to('Login with Facebook', user_facebook_omniauth_authorize_path) %>
 <% end %>
 <%= yield %>
 </body>
