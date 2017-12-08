@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
   before_action :get_article, except: :index
 
   def index
-    @agency = NewsAgency.first
     @articles = Article.all
   end
 

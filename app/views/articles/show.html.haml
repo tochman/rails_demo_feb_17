@@ -1,11 +1,11 @@
-%h1= @article.title
+%h2= @article.title
 %p= @article.content
 
 = form_with url: article_comments_path(@article) do |form|
-  = form.label :email
+  %p= form.label :email
   = form.text_field :email
-  = form.label :comment
-  = form.text_field :comment
+  %p= form.label :comment
+  = form.text_area :comment, cols: 50, rows: 5
   = form.submit 'Create Comment'
 
 - if @article.comments.any?

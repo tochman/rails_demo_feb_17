@@ -1,0 +1,177 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$sm-screen: 800px;
+
+$base-font-family: Gill Sans, Verdana;
+$header-font-family: "UnifrakturMaguntia";
+$alt-font-family: Gill Sans, Verdana;
+
+body, html {
+  height: 100%;
+  background: #e0ddcc;
+}
+
+.container {
+  max-width: 800px;
+  background-color: #eee;
+  padding: 20px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(20, 20, 20, 0.5);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(20, 20, 20, 0.5);
+  box-shadow: 0px 0px 10px 1px rgba(20, 20, 20, 0.5);
+
+}
+
+h2, h3, h4, h5, h6, p, span, label, input, em, a{
+  font-family: $base-font-family;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p, span {
+  a {
+    font-weight: 600;
+  }
+}
+
+input, textarea, select, button {
+  display: block;
+  border: 2px solid #eeeeee;
+  margin: 0 0 10px 0;
+  padding: 1%;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  color: #333333;
+  letter-spacing: .01em;
+  font-family: $alt-font-family;
+  &:focus {
+    outline: none;
+  }
+}
+
+h1 {
+  font-family: $header-font-family;
+  text-align: center;
+  letter-spacing: -2px;
+  font-size: 5em;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  @media(screen and max-width: $sm-screen) {
+    font-size: 3em;
+    letter-spacing: -2px;
+  }
+}
+
+h2 {
+  letter-spacing: -0.1rem;
+  margin-bottom: 0.5em;
+  margin-top: 0.2em;
+  font-weight: normal;
+  text-transform: uppercase;
+  small {
+    display: block;
+    font-family: $alt-font-family;
+    font-size: 11px;
+    line-height: 14px;
+    margin-top: 0.2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    &:before {
+      content: 'By ';
+    }
+  }
+}
+
+.details {
+  border: solid #000;
+  border-width: 1px 0 1px 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.main {
+  margin-top: 1em;
+  -webkit-columns: 15em 3;
+  -moz-columns: 15em 3;
+  columns: 15em 3;
+
+  .avatar {
+    border-radius: 50%;
+  }
+}
+
+article {
+  break-inside: avoid-column;
+  margin-bottom: 3em;
+  a {
+    display: inline-block;
+    color: #666;
+    &:hover {
+      color: #222;
+    }
+
+  }
+
+  img {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+    filter: gray;
+    max-width: 100%;
+    width: 100%; // make firefox happy
+  }
+  .read-more, .discuss {
+    margin-top: -0.5em;
+    margin-bottom: 2em;
+    font-family: $alt-font-family;
+    letter-spacing: 1px;
+  }
+  .read-more {
+    float: left;
+  }
+  .discuss {
+    float: right;
+  }
+}
+
+footer {
+  font-family: $alt-font-family;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  letter-spacing: 2px;
+  color: rgba(0, 0, 0, 0.5);
+  a {
+    color: rgba(0, 0, 0, 0.5);
+    &:hover {
+      color: rgba(0, 0, 0, 0.75);
+    }
+  }
+}
+
+

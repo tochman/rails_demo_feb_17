@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).on('turbolinks:load', function () {
+    setTimeout(function () {
+        $('.flash').fadeOut('slow');
+    }, 5000);
+
+
+});
+

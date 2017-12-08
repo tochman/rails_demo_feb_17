@@ -9,8 +9,13 @@ RSpec.describe User, type: :model do
 
   describe 'Database' do
     it { is_expected.to have_db_column :id}
+    it { is_expected.to have_db_column :name}
     it { is_expected.to have_db_column :email}
     it { is_expected.to have_db_column :encrypted_password}
+  end
+
+  describe 'Validations (non Devise attributes)' do
+    it { is_expected.to validate_presence_of :name}
   end
 
   describe '#subscriber?' do

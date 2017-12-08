@@ -1,0 +1,81 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', http: {equiv: 'Content-Type'}}/
+    %title RailsDemo
+    = csrf_meta_tags
+    %link{href: 'https://fonts.googleapis.com/css?family=UnifrakturMaguntia', rel: 'stylesheet'}/
+    = stylesheet_link_tag 'application', media: 'all', data: {turbolinks: {track: 'reload'}}
+    = javascript_include_tag 'application', data: {turbolinks: {track: 'reload'}}
+    %script{src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBPpYLyqAKFmeBtAJvRUhcukDr0qZ8lyUc', data: {turbolinks: {track: 'reload'}}}
+    %script{src: 'https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js'}
+
+
+  %body
+    .container
+      %header
+        .details
+          %span
+            - if user_signed_in?
+              Signed in as: #{current_user.email}
+              = link_to 'Subscribe', new_subscription_path unless current_user.subscriber?
+              |
+              = link_to 'Sign out', destroy_user_session_path, method: :delete
+              |
+            - else
+              = link_to('Create an account', new_user_registration_path)
+              |
+              = link_to('Login', new_user_session_path)
+              |
+              =link_to('Login with Facebook', user_facebook_omniauth_authorize_path)
+              |
+        %h1
+          = link_to 'Ruby Observer', root_path
+        .details
+          %span
+            = Date.today.to_s(:long)
+        - flash.each do |key, value|
+          .flash
+            %span= value
+      %div{style: 'min-height: 400px'}
+        = yield
+      %footer
+        A
+        %a{href: '#'} Craft Academy
+        Publication
+        #map{style: 'height: 200px; width: 100%'}
+        %p
+          %small= [@agency.street_address, @agency.post_code, @agency.city].join(', ') if @agency
+
+:javascript
+  $(document).on("turbolinks:load", function () {
+    var map = new GMaps({
+        el: "#map",
+        lat: #{@agency.latitude},
+        lng: #{@agency.longitude},
+        zoom: 11,
+        zoomControl : true,
+        zoomControlOpt: {
+            style : "SMALL",
+            position: "TOP_LEFT"
+        },
+        panControl : true,
+        streetViewControl : false,
+        mapTypeControl: false,
+        overviewMapControl: false
+    });
+
+
+    map.addMarker({
+        lat: map.getCenter().lat(),
+        lng: map.getCenter().lng(),
+    });
+
+    map.addStyle({
+        styledMapName:"Styled Map",
+        styles: styles,
+        mapTypeId: "map_style"
+    });
+
+    map.setStyle("map_style");
+  });

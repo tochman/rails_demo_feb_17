@@ -1,21 +1,4 @@
 - @articles.each do |article|
-  = link_to article.title, article_path(article)
-  %p= article.content
+  %h2= link_to article.title, article_path(article)
+  %p= truncate(article.content, length: 150) { link_to ' (continued)', article_path(article)}
 
-#map{style: 'height: 550px; width: 100%'}
-
--#%script{src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBPpYLyqAKFmeBtAJvRUhcukDr0qZ8lyUc'}
--#%script{src: 'https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js'}
--#
--#
--#:javascript
--#    var map = new GMaps({
--#      div: '#map',
--#      lat: #{@agency.latitude},
--#      lng: #{@agency.longitude},
--#      zoom: 18
--#    });
--#    map.addMarker({
--#      lat: map.getCenter().lat(),
--#      lng: map.getCenter().lng(),
--#    });
