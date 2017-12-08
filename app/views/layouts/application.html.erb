@@ -16,7 +16,7 @@
 
 <% if user_signed_in? %>
   Signed in as: <%= current_user.email %>
-  <%= image_tag current_user.image %>
+  <%= image_tag current_user.image if current_user.image %>
 <p>
   <%= link_to 'Subscribe', new_subscription_path %>
 </p>

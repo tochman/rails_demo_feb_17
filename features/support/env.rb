@@ -1,5 +1,3 @@
-
-
 require 'cucumber/rails'
 
 ActionController::Base.allow_rescue = false
@@ -27,8 +25,11 @@ end
 Capybara.javascript_driver = :chrome
 
 
-OmniAuth.config.test_mode = true
+Before do
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_response)
+end
 
 Warden.test_mode!
 World Warden::Test::Helpers
-After { Warden.test_reset! }
+After {Warden.test_reset!}
