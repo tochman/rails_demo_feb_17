@@ -17,9 +17,11 @@
         .details
           %span
             - if user_signed_in?
-              Signed in as: #{current_user.email}
-              = link_to 'Subscribe', new_subscription_path unless current_user.subscriber?
+              Signed in as: #{link_to current_user.name, edit_registration_path(current_user)}
               |
+              - unless current_user.subscriber?
+                = link_to 'Subscribe', new_subscription_path
+                |
               = link_to 'Sign out', destroy_user_session_path, method: :delete
               |
             - else
@@ -47,35 +49,31 @@
         %p
           %small= [@agency.street_address, @agency.post_code, @agency.city].join(', ') if @agency
 
-:javascript
-  $(document).on("turbolinks:load", function () {
-    var map = new GMaps({
-        el: "#map",
-        lat: #{@agency.latitude},
-        lng: #{@agency.longitude},
-        zoom: 11,
-        zoomControl : true,
-        zoomControlOpt: {
-            style : "SMALL",
-            position: "TOP_LEFT"
-        },
-        panControl : true,
-        streetViewControl : false,
-        mapTypeControl: false,
-        overviewMapControl: false
+  :javascript
+    $(document).on("turbolinks:load", function () {
+      var map = new GMaps({
+          el: "#map",
+          lat: #{@agency.latitude},
+          lng: #{@agency.longitude},
+          zoom: 11,
+          zoomControl : true,
+          zoomControlOpt: {
+              style : "SMALL",
+              position: "TOP_LEFT"
+          },
+          panControl : true,
+          streetViewControl : false,
+          mapTypeControl: false,
+          overviewMapControl: false
+      });
+      map.addMarker({
+          lat: map.getCenter().lat(),
+          lng: map.getCenter().lng(),
+      });
+      map.addStyle({
+          styledMapName:"Styled Map",
+          styles: styles,
+          mapTypeId: "map_style"
+      });
+      map.setStyle("map_style");
     });
-
-
-    map.addMarker({
-        lat: map.getCenter().lat(),
-        lng: map.getCenter().lng(),
-    });
-
-    map.addStyle({
-        styledMapName:"Styled Map",
-        styles: styles,
-        mapTypeId: "map_style"
-    });
-
-    map.setStyle("map_style");
-  });

@@ -1,6 +1,6 @@
 When(/^I click the "([^"]*)" stripe button$/) do |button|
   click_button button
-  sleep(2)
+  sleep(5)
   @stripe_iframe = all('iframe[name=stripe_checkout_app]').last
 end
 

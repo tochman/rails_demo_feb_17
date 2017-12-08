@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
     else
       message = 'You are not authorized to perform this action.'
     end
-    redirect_back(fallback_location: root_path, notice: message)
+    redirect_to root_path, notice: message
+    #redirect_back(fallback_location: root_path, notice: message)
   end
 
   def get_agency

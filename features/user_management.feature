@@ -6,13 +6,14 @@ Feature: Authentication: User can create and use an account
 
   Background:
     Given the following users exist
-      | email             | password        |
-      | random@random.com | random_password |
+      | name       | email             | password        |
+      | Random Guy | random@random.com | random_password |
 
 
   Scenario: User creates an account
     Given I am on the landing page
     And I click on "Create an account"
+    And I fill in "Name" with "New User"
     And I fill in "Email" with "new_user@random.com"
     And I fill in "Password" with "new_password"
     And I fill in "Password confirmation" with "new_password"

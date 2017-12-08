@@ -36,3 +36,10 @@ And(/^I fill in the form with:$/) do |table|
     fill_in key, with: value
   end
 end
+
+And(/^I click on "([^"]*)" for "([^"]*)"$/) do |article_title, element|
+  article = Article.find_by(title: article_title)
+  within "#article-#{article.id}" do
+    click_link_or_button element
+  end
+end

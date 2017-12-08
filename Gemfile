@@ -24,6 +24,7 @@ gem 'geocoder'
 
 group :development, :test do
   gem 'pry'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
@@ -33,7 +34,7 @@ group :development, :test do
   gem 'validates_email_format_of'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
-
+  gem 'coveralls', require: false
 end
 
 group :development do

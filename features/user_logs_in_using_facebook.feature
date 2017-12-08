@@ -8,5 +8,4 @@ Feature: User can log in using his/hers facebook credentials
     Given I am on the landing page
     And I click on "Login with Facebook"
     Then I should be on the "landing" page
-    Then show me the page
     And I should see "Successfully authenticated from Facebook account"

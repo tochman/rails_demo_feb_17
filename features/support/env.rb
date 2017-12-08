@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear_merged!('rails')
+
 require 'cucumber/rails'
 
 ActionController::Base.allow_rescue = false
@@ -26,8 +29,13 @@ Capybara.javascript_driver = :chrome
 
 
 Before do
+  FactoryGirl.create(:news_agency)
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_response)
+end
+
+After do
+  Capybara.reset!
 end
 
 Warden.test_mode!

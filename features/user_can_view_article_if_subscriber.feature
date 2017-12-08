@@ -7,9 +7,9 @@ Feature: User can view an article if he is a subscriber
 
   Background:
     Given the following users exist
-      | email                 | subscriber |
-      | random@random.com     | false      |
-      | subscriber@random.com | true       |
+      | name         | email                 | subscriber |
+      | Random Guy   | random@random.com     | false      |
+      | Reading Dude | subscriber@random.com | true       |
 
     And the following articles exists in the system
       | title                | content                          |

@@ -1,4 +1,5 @@
 Then(/^I should be on the "([^"]*)" page$/) do |page|
+  sleep 1
   case page
     when 'landing'
       expect(current_path).to eq root_path
@@ -9,5 +10,5 @@ end
 
 
 Then(/^I should see "([^"]*)"$/) do |content|
-  expect(page).to have_content content
+  expect(page).to have_content /#{content}/i
 end
