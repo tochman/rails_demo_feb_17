@@ -1,6 +1,8 @@
 When(/^I click the "([^"]*)" stripe button$/) do |button|
   click_button button
   sleep(5)
+
+  #until page.execute_script('document.querySelectorAll("main.Modal").length') == 1
   @stripe_iframe = all('iframe[name=stripe_checkout_app]').last
 
 end

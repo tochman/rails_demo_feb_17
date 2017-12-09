@@ -25,9 +25,15 @@ Feature: User can comment on an article
     And I fill in "Comment" with "Star Trek Discovery"
     And I click on "Create Comment"
     Then I should be on the "Learn Rails 5" article page
-    And I should see "Your comment was added successfully"
-    And I should see "Star Trek Discovery"
-    And I should see "Commented by: random@email.com"
+    And I should see "Your comment was added successfully and will be reviews before publication"
+
+  Scenario: User opts out from submitting email
+    And I click on "Learn Rails 5"
+    When I fill in "Email" with ""
+    And I fill in "Comment" with "Star Trek Discovery"
+    And I click on "Create Comment"
+    Then I should be on the "Learn Rails 5" article page
+    And I should see "Your comment was added successfully and will be reviews before publication"
 
   Scenario: User fails to submit content of comment
     And I click on "Learn Rails 5"
@@ -45,13 +51,5 @@ Feature: User can comment on an article
     Then I should be on the "Learn Rails 5" article page
     And I should see "Email is invalid"
 
-  Scenario: User opts out from submitting email
-    And I click on "Learn Rails 5"
-    When I fill in "Email" with ""
-    And I fill in "Comment" with "Star Trek Discovery"
-    And I click on "Create Comment"
-    Then I should be on the "Learn Rails 5" article page
-    And I should see "Your comment was added successfully"
-    And I should see "Star Trek Discovery"
-    And I should see "Commented by: anonymous"
+
 

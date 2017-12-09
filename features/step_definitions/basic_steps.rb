@@ -21,10 +21,9 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   end
 end
 
-
-Then(/^I should be on the "([^"]*)" article page$/) do |article_title|
+Then(/^I am on the "([^"]*)" article page$/) do |article_title|
   article = Article.find_by(title: article_title)
-  expect(current_path).to eq article_path(article)
+  visit article_path(article)
 end
 
 Then(/^show me the page$/) do
@@ -42,4 +41,8 @@ And(/^I click on "([^"]*)" for "([^"]*)"$/) do |article_title, element|
   within "#article-#{article.id}" do
     click_link_or_button element
   end
+end
+
+Then(/^pause$/) do
+  binding.pry
 end

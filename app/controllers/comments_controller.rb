@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     article = Article.find(params[:article_id])
     comment = Comment.create(comment_params.merge!(article: article))
     if comment.persisted?
-      flash[:success] = 'Your comment was added successfully'
+      flash[:success] = 'Your comment was added successfully and will be reviews before publication'
     else
       message = ''
       comment.errors.full_messages.each do |error_message|
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    comment = Comment.find params[:id]
+    comment = Comment.not_rejected.find params[:id]
     if params[:transition]
       comment.send(params[:transition].to_sym)
     end

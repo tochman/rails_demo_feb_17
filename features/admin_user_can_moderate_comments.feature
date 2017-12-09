@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin User can moderate features
   As the owner of the site
   In order to keep the atmosphere on the site civil
@@ -14,10 +15,10 @@ Feature: Admin User can moderate features
       | A breaking news item | Some really breaking action |
 
     Given the following comments exists in the system
-      | article              | content      | email               |
-      | A breaking news item | This is cool | commenter@random.se |
+      | article              | content         | email               | state     |
+      | A breaking news item | This is cool    | commenter@random.se | submitted |
+      | A breaking news item | This is awesome | commenter@random.se | approved  |
 
-  @javascript
   Scenario: Visitor can not  moderate comments on article
     Given I am logged in as "random@random.com"
     And I am on the landing page
@@ -25,7 +26,6 @@ Feature: Admin User can moderate features
     Then I should not see "Approve"
     Then I should not see "Reject"
 
-  @javascript
   Scenario: Admin User can approve comments on article
     Given I am logged in as "publisher@random.com"
     And I am on the landing page
@@ -34,7 +34,6 @@ Feature: Admin User can moderate features
     Then I should be on the "A breaking news item" article page
     And I should see "Comment was approved!"
 
-  @javascript
   Scenario: Admin User can approve comments on article
     Given I am logged in as "publisher@random.com"
     And I am on the landing page

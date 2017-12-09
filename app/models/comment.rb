@@ -10,6 +10,9 @@ class Comment < ApplicationRecord
     resource.send(:initialize_state_machines, dynamic: :force)
   end
 
+  default_scope -> { with_state(:approved) }
+  scope :not_rejected, -> { unscoped.where.not(state: :rejected)}
+
   state_machine :state, initial: :submitted do
     event :approve do
       transition submitted: :approved
