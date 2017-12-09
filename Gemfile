@@ -14,6 +14,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'haml-rails'
+gem 'validates_email_format_of'
+
 gem 'devise'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'pundit'
@@ -32,7 +34,6 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'validates_email_format_of'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'coveralls', require: false
