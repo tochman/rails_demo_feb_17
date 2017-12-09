@@ -33,3 +33,10 @@ If a malicious format string which contains a precious specifier (*) is passed a
 
 All users running an affected release should upgrade immediately.')
 
+
+User.create(name: 'Clark Kent',
+            email: 'clark@dailyplanet.com',
+            password: 'password',
+            password_confirmation: 'password',
+            owner: true)
+
