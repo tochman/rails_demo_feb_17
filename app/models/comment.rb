@@ -6,13 +6,17 @@ class Comment < ApplicationRecord
                             message: 'Email is invalid',
                             allow_blank: true
 
+  before_validation on: :create do |resource|
+    resource.send(:initialize_state_machines, dynamic: :force)
+  end
+
   state_machine :state, initial: :submitted do
     event :approve do
-      transition [:submitted] => :approved
+      transition submitted: :approved
     end
 
     event :reject do
-      transition [:submitted] => :rejected
+      transition submitted: :rejected
     end
   end
 end

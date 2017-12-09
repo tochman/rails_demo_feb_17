@@ -18,18 +18,30 @@ Feature: Admin User can moderate features
       | A breaking news item | This is cool | commenter@random.se |
 
   @javascript
-  Scenario: Admin User can moderate comments on article
-    Given I am logged in as "publisher@random.com"
-    And I am on the landing page
-    And I click on "A breaking news item"
-    Then I should see "Moderate"
-
-  @javascript
-  Scenario: Admin User can moderate comments on article
+  Scenario: Visitor can not  moderate comments on article
     Given I am logged in as "random@random.com"
     And I am on the landing page
     And I click on "A breaking news item"
-    Then I should not see "Moderate"
+    Then I should not see "Approve"
+    Then I should not see "Reject"
+
+  @javascript
+  Scenario: Admin User can approve comments on article
+    Given I am logged in as "publisher@random.com"
+    And I am on the landing page
+    And I click on "A breaking news item"
+    When I click on "Approve"
+    Then I should be on the "A breaking news item" article page
+    And I should see "Comment was approved!"
+
+  @javascript
+  Scenario: Admin User can approve comments on article
+    Given I am logged in as "publisher@random.com"
+    And I am on the landing page
+    And I click on "A breaking news item"
+    When I click on "Reject"
+    Then I should be on the "A breaking news item" article page
+    And I should see "Comment was rejected!"
     
 
 

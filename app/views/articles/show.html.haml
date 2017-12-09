@@ -13,4 +13,6 @@
   - @article.comments.each do |comment|
     %p= "Commented by: #{comment.email.empty? ? 'anonymous' : comment.email}"
     %p= comment.content
-    = link_to 'Moderate', '#' if current_user.can?(:moderate, comment)
+    - if current_user.can?(:moderate, comment)
+      = link_to 'Approve', article_comment_path(@article, comment, transition: :approve), method: :put
+      = link_to 'Reject', article_comment_path(@article, comment, transition: :reject), method: :put

@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   root controller: :articles, action: :index
 
   resources :articles, only: [:index, :show] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :update]
   end
 end

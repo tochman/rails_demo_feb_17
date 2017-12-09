@@ -14,6 +14,14 @@ class CommentsController < ApplicationController
     redirect_to article_path(article)
   end
 
+  def update
+    comment = Comment.find params[:id]
+    if params[:transition]
+      comment.send(params[:transition].to_sym)
+    end
+    redirect_to article_path(comment.article), notice: "Comment was #{comment.state}!"
+  end
+
   def comment_params
     params.require(:comment).permit(:content, :email)
   end
