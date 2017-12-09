@@ -1,5 +1,5 @@
 Then(/^I should be on the "([^"]*)" page$/) do |page|
-  sleep 1
+  sleep 5
   case page
     when 'landing'
       expect(current_path).to eq root_path

@@ -35,6 +35,9 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'coveralls', require: false
+  gem 'stripe-ruby-mock', '~> 2.5', require: 'stripe_mock'
+  gem 'webmock'
+  gem 'dotenv-rails'
 end
 
 group :development do

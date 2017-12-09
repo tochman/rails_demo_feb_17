@@ -5,8 +5,8 @@
 = form_tag charges_path do
   %script.stripe-button{ src: 'https://checkout.stripe.com/checkout.js',
       data: {amount: 1000,
-      description: 'Subscription',
+      description: 'Subscription to Ruby Observer',
       key: 'pk_test_QicERB8w3kyqaYW3hUUQylRH',
       currency: 'sek',
       email: "#{current_user.email if current_user}"}}
-  %button{type: 'submit'} Pay
+  -#%button{type: 'submit'} Pay with Card

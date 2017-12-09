@@ -21,10 +21,9 @@ Feature: User can purchase a subscription
     Given I am logged in as "random@random.com"
     And I am on the landing page
     When I click on "Learn Rails 5"
-    Then I should be on the "landing" page
-    And I should see "You need to purchase a subscription"
+    Then I should see "You need to purchase a subscription"
     When I click on "Subscribe"
-    And I click the "Pay" stripe button
+    And I click the "Pay with Card" stripe button
     And I fill in stripe field "Card number" with "4242 4242 4242 4242"
     And I fill in stripe field "CVC" with "123"
     And I fill in stripe field "Expiry" with "12/2021"
