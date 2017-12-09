@@ -13,3 +13,4 @@
   - @article.comments.each do |comment|
     %p= "Commented by: #{comment.email.empty? ? 'anonymous' : comment.email}"
     %p= comment.content
+    = link_to 'Moderate', '#' if current_user.can?(:moderate, comment)

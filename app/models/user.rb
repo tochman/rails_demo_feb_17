@@ -24,4 +24,15 @@ class User < ApplicationRecord
       user.image = auth.info.image # assuming the user model has an image
     end
   end
+
+  def can?(action, object)
+    begin
+      policy_method = "#{action.to_s}?"
+      Pundit.policy!(self, object).send(policy_method)
+    rescue NoMethodError => e
+      policy_name = "#{object.class.name.to_s}Policy"
+      logger.debug "Undefined Pundit policy method: #{policy_name}##{policy_method}, returned false by default"
+      false
+    end
+  end
 end

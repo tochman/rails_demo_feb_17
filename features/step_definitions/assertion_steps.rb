@@ -12,3 +12,7 @@ end
 Then(/^I should see "([^"]*)"$/) do |content|
   expect(page).to have_content /#{content}/i
 end
+
+Then(/^I should not see "([^"]*)"$/) do |content|
+  expect(page).to_not have_content /#{content}/i
+end

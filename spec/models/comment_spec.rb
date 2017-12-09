@@ -28,4 +28,8 @@ RSpec.describe Comment, type: :model do
                          .with_message 'Email is invalid'
     end
   end
+
+  describe 'states' do
+    it { is_expected.to have_states :submitted, :approved, :rejected }
+  end
 end

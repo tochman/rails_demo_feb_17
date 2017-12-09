@@ -12,6 +12,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :name}
     it { is_expected.to have_db_column :email}
     it { is_expected.to have_db_column :encrypted_password}
+    it { is_expected.to have_db_column :subscriber}
+    it { is_expected.to have_db_column :owner}
   end
 
   describe 'Validations (non Devise attributes)' do
@@ -28,6 +30,20 @@ RSpec.describe User, type: :model do
 
     it 'responds false if user is not a subscriber' do
       expect(nonsubscriber.subscriber?).to eq false
+    end
+
+  end
+
+  describe '#owner?' do
+    let(:owner) {FactoryGirl.create(:user, owner: true)}
+    let(:visitor) {FactoryGirl.create(:user, owner: false)}
+
+    it 'responds true if user is a owner' do
+      expect(owner.owner?).to eq true
+    end
+
+    it 'responds false if user is not a owner' do
+      expect(visitor.owner?).to eq false
     end
 
   end

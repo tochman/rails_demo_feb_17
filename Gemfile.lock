@@ -239,6 +239,10 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
     rspec-core (3.7.0)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -294,6 +298,12 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    state_machine (1.2.0)
+    state_machines (0.5.0)
+    state_machines-rspec (0.5.0)
+      activesupport
+      rspec (~> 3.3)
+      state_machines
     stripe (3.8.2)
       faraday (~> 0.10)
     stripe-rails (1.1.2)
@@ -369,6 +379,8 @@ DEPENDENCIES
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
+  state_machine
+  state_machines-rspec
   stripe-rails
   stripe-ruby-mock (~> 2.5)
   turbolinks (~> 5)

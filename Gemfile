@@ -20,6 +20,7 @@ gem 'pundit'
 gem 'stripe-rails'
 
 gem 'geocoder'
+gem 'state_machine'
 
 
 group :development, :test do
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'stripe-ruby-mock', '~> 2.5', require: 'stripe_mock'
   gem 'webmock'
   gem 'dotenv-rails'
+  gem 'state_machines-rspec'
 end
 
 group :development do
