@@ -38,7 +38,8 @@
             = Date.today.to_s(:long)
         - flash.each do |key, value|
           .flash
-            %span= value
+            %span
+              %strong= value
       %div{style: 'min-height: 400px'}
         = yield
       %footer

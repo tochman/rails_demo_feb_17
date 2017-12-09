@@ -26,8 +26,8 @@ module RailsDemo
       generate.routing_specs false
       generate.controller_specs false
     end
-    config.stripe.secret_key = ENV['STRIPE_APP']
-    config.stripe.publishable_key = ENV['STRIPE_SECRET']
+    config.stripe.secret_key = ENV['STRIPE_SECRET']
+    config.stripe.publishable_key = ENV['STRIPE_APP']
     config.stripe.endpoint = '/payment/stripe-integration'
   end
 end

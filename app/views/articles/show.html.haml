@@ -1,10 +1,11 @@
-%h2= @article.title
-%p= @article.content
+%article
+  %h2= @article.title
+  %p= @article.content
 
 = form_with url: article_comments_path(@article), scope: :comment do |form|
   %p= form.label :email
   = form.text_field :email, id: 'comment_email'
-  %p= form.label :content, :comment
+  %p= form.label :content, 'Comment'
   = form.text_area :content, cols: 50, rows: 5, id: 'comment_content'
   = form.submit 'Create Comment'
 
