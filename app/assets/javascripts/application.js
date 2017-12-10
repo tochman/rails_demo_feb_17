@@ -21,6 +21,5 @@ $(document).on('turbolinks:load', function () {
         $('.flash').fadeOut('slow');
     }, 5000);
 
-
 });
 

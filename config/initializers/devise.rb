@@ -253,8 +253,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook,
                   '1621623384764301',
-                  '52edb8b7ca0af425a4cb406781004803',
-                  callback_url: 'http://localhost:3000/users/auth/facebook/callback'
+                  '52edb8b7ca0af425a4cb406781004803', {scope: 'public_profile'}
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
