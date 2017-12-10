@@ -9,7 +9,7 @@
   = form.text_area :content, cols: 50, rows: 5, id: 'comment_content'
   = form.submit 'Create Comment'
 
-- if @article.comments.any?
+- if get_comments(@article).any?
   - get_comments(@article).each do |comment|
     %p= "Commented by: #{comment.email.empty? ? 'anonymous' : comment.email}"
     %p= comment.content
