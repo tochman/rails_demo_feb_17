@@ -23,6 +23,7 @@ gem 'stripe-rails'
 
 gem 'geocoder'
 gem 'state_machine'
+gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 
 
 group :development, :test do

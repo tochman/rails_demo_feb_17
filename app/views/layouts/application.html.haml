@@ -41,7 +41,7 @@
         - flash.each do |key, value|
           .flash
             %span
-              %strong= value
+              %strong= value.html_safe
       %div{style: 'min-height: 400px'}
         = yield
       %footer
