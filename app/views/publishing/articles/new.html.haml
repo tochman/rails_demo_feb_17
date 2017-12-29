@@ -1,0 +1,6 @@
+= form_with url: publishing_articles_path, scope: :article do |form|
+  %p= form.label :title
+  = form.text_field :title, id: 'article_title'
+  %p= form.label :content
+  = form.text_area :content, cols: 50, rows: 5, id: 'article_content'
+  = form.submit 'Submit for review'

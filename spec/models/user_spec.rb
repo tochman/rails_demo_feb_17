@@ -14,6 +14,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :encrypted_password}
     it { is_expected.to have_db_column :subscriber}
     it { is_expected.to have_db_column :owner}
+    it { is_expected.to have_db_column :publisher}
   end
 
   describe 'Validations (non Devise attributes)' do

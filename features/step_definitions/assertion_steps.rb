@@ -1,8 +1,10 @@
 Then(/^I should be on the "([^"]*)" page$/) do |page|
-  sleep 5
+  sleep 2
   case page
     when 'landing'
       expect(current_path).to eq root_path
+    when 'publishing dashboard'
+      expect(current_path).to eq publishing_articles_path
     else
       raise 'no path provided'
   end

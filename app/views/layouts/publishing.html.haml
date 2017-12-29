@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', http: {equiv: 'Content-Type'}}/
+    %title RailsDemo
+    = csrf_meta_tags
+    %link{href: 'https://fonts.googleapis.com/css?family=UnifrakturMaguntia', rel: 'stylesheet'}/
+    = stylesheet_link_tag 'application', media: 'all', data: {turbolinks: {track: 'reload'}}
+    = javascript_include_tag 'application', data: {turbolinks: {track: 'reload'}}
+    %script{src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBPpYLyqAKFmeBtAJvRUhcukDr0qZ8lyUc', data: {turbolinks: {track: 'reload'}}}
+    %script{src: 'https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js'}
+
+
+  %body
+    .container
+      %header
+        .details
+          %span
+            - if user_signed_in?
+              Signed in as: #{link_to current_user.name, edit_registration_path(current_user)}
+              |
+              - unless current_user.subscriber?
+                = link_to 'Subscribe', new_subscription_path
+                |
+              = link_to 'Sign out', destroy_user_session_path, method: :delete
+              |
+            - else
+              = link_to('Create an account', new_user_registration_path)
+              |
+              = link_to('Login', new_user_session_path)
+              |
+              =link_to('Login with Facebook', user_facebook_omniauth_authorize_path)
+              |
+        %h1 Publishing Land
+        - flash.each do |key, value|
+          .flash
+            %span
+              %strong= value.html_safe
+      %div{style: 'min-height: 400px'}
+        = yield
+      %footer
+        A
+        %a{href: '#'} Craft Academy
+        Publication

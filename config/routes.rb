@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :subscriptions, only: [:new]
   post '/charges', controller: :subscriptions, action: :create
 
@@ -10,5 +9,9 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:index, :show] do
     resources :comments, only: [:create, :update]
+  end
+
+  namespace :publishing do
+    resources :articles, only: [:create, :new, :index]
   end
 end
