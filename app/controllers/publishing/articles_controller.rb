@@ -5,7 +5,7 @@ class Publishing::ArticlesController < Publishing::PublishingController
   end
 
   def create
-    article = Article.create(article_params)
+    article = Article.create(article_params.merge!(author: current_user))
     if article.persisted?
       redirect_to publishing_articles_path, notice: 'Your article has been submitted for review.'
     else

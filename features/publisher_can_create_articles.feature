@@ -20,3 +20,4 @@ Feature: Publisher can create news articles
     And I click on "Submit for review"
     Then I should be on the "publishing dashboard" page
     And I should see "Your article has been submitted for review"
+    And the article's "author" should be "Clark Kent"

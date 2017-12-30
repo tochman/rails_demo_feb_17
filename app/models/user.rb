@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   validates_presence_of :name
 
+  has_many :articles
+
 
   def self.new_with_session(params, session)
     super.tap do |user|
