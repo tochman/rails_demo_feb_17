@@ -5,7 +5,7 @@ end
 
 Given(/^the following articles exists in the system$/) do |table|
   table.hashes.each do |hash|
-    FactoryBot.create(:article, hash)
+    create(:article, hash)
   end
 end
 

@@ -29,6 +29,7 @@ end
 Capybara.javascript_driver = :chrome
 
 World Warden::Test::Helpers
+World FactoryBot::Syntax::Methods
 
 
 Before do
