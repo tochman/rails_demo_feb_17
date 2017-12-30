@@ -1,6 +1,6 @@
 %article
-  %h2= @article.title
-  %p= @article.content
+  %h2= @article.title.html_safe
+  %p= @article.content.html_safe
 
 = form_with url: article_comments_path(@article), scope: :comment do |form|
   %p= form.label :email

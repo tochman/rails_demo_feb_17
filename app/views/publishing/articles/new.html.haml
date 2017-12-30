@@ -1,6 +1,45 @@
 = form_with url: publishing_articles_path, scope: :article do |form|
   %p= form.label :title
-  = form.text_field :title, id: 'article_title'
+  = form.text_area :title, id: 'article_title', class: 'editable-header'
   %p= form.label :content
-  = form.text_area :content, cols: 50, rows: 5, id: 'article_content'
+  = form.text_area :content, cols: 50, rows: 5, id: 'article_content', class: 'content'
   = form.submit 'Submit for review'
+
+:javascript
+  var editor = new MediumEditor('.content', {
+    toolbar: {
+        buttons: ['bold', 'italic', 'quote', 'pre', 'h1', 'h2', 'h3', 'unorderedlist'],
+        diffLeft: 25,
+        diffTop: 10,
+    },
+    placeholder: {
+        /* This example includes the default options for placeholder,
+           if nothing is passed this is what it used */
+        text: 'Add content here...',
+        hideOnClick: true
+    },
+    anchor: {
+        /* These are the default options for anchor form,
+           if nothing is passed this is what it used */
+        customClassOption: null,
+        customClassOptionText: 'Button',
+        linkValidation: false,
+        placeholderText: 'Paste or type a link',
+        targetCheckbox: true,
+        targetCheckboxText: 'Open in new window'
+    },
+    paste: {
+        cleanPastedHTML: true,
+        cleanAttrs: ['style', 'dir'],
+        cleanTags: ['label', 'meta'],
+        unwrapTags: ['sub', 'sup']
+    },
+    autoLink: true,
+    imageDragging: true
+  });
+
+  var headerEditor = new MediumEditor('.editable-header', {
+    toolbar: false,
+    style: {
+    prop: 'font-weight', value: '700|bold'}
+  });
