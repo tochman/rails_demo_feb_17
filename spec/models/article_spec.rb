@@ -4,7 +4,7 @@ RSpec.describe Article, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(FactoryGirl.create(:article)).to be_valid
+      expect(create(:article)).to be_valid
     end
   end
 
@@ -21,6 +21,7 @@ RSpec.describe Article, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :comments}
+    it { is_expected.to belong_to :author}
   end
 
 end

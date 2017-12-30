@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'Factory' do
     it 'is valid' do
-      expect(FactoryGirl.create(:user)).to be_valid
+      expect(create(:user)).to be_valid
     end
   end
 
@@ -22,8 +22,8 @@ RSpec.describe User, type: :model do
   end
 
   describe '#subscriber?' do
-    let(:subscriber) {FactoryGirl.create(:user, subscriber: true)}
-    let(:nonsubscriber) {FactoryGirl.create(:user, subscriber: false)}
+    let(:subscriber) {create(:user, subscriber: true)}
+    let(:nonsubscriber) {create(:user, subscriber: false)}
 
     it 'responds true if user is a subscriber' do
       expect(subscriber.subscriber?).to eq true
@@ -36,8 +36,8 @@ RSpec.describe User, type: :model do
   end
 
   describe '#owner?' do
-    let(:owner) {FactoryGirl.create(:user, owner: true)}
-    let(:visitor) {FactoryGirl.create(:user, owner: false)}
+    let(:owner) {create(:user, owner: true)}
+    let(:visitor) {create(:user, owner: false)}
 
     it 'responds true if user is a owner' do
       expect(owner.owner?).to eq true
@@ -48,5 +48,20 @@ RSpec.describe User, type: :model do
     end
 
   end
+
+  describe '#publisher?' do
+    let(:publisher) {create(:user, publisher: true)}
+    let(:subscriber) {create(:user, subscriber: true)}
+
+    it 'responds true if user is a owner' do
+      expect(publisher.publisher?).to eq true
+    end
+
+    it 'responds false if user is not a owner' do
+      expect(subscriber.publisher?).to eq false
+    end
+
+  end
+
 
 end

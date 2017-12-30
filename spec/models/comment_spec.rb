@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
 
   describe 'Factory' do
-    let(:article) { FactoryGirl.create(:article)}
+    let(:article) { create(:article)}
+
     it 'is valid' do
-      expect(FactoryGirl.create(:comment, article: article)).to be_valid
+      expect(create(:comment, article: article)).to be_valid
     end
   end
 
@@ -23,6 +24,7 @@ RSpec.describe Comment, type: :model do
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :content}
+
     it do
       is_expected.to validate_email_format_of(:email)
                          .with_message 'Email is invalid'

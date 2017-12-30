@@ -34,7 +34,7 @@ World Warden::Test::Helpers
 Before do
   Warden.test_mode!
   WebMock.allow_net_connect!
-  FactoryGirl.create(:news_agency)
+  FactoryBot.create(:news_agency)
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(OmniAuthFixtures.facebook_response)
 end

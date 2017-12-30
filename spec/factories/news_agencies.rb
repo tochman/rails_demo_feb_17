@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :news_agency do
     name "MyString"
     street_address "MyString"
