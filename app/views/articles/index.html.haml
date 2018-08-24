@@ -1,5 +1,5 @@
 - @articles.each do |article|
-  %div{ id: "article-#{article.id}" }
+  %div{ id: "#{dom_id(article)}" }
     %h2= link_to article.title, article_path(article)
     %p= truncate(article.content, length: 150) { link_to ' (continued)', article_path(article)}
 

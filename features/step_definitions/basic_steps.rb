@@ -43,6 +43,6 @@ And(/^I click on "([^"]*)" for "([^"]*)"$/) do |article_title, element|
   end
 end
 
-Then(/^pause$/) do
+Then(/^stop$/) do
   binding.pry
 end
